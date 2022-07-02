@@ -6,6 +6,8 @@ This web app can render Markdown (.md) documents under ```/src/routes``` into st
 
 ![1](https://user-images.githubusercontent.com/44191076/176992155-794b458b-9136-4be5-9f80-fc03aa6940dd.png)
 
+Example site: **https://alankrantas.github.io/markdown-doc-gen**
+
 ## Modifying the Doc Site
 
 ```index.md``` is the default entry page. But any Markdown docs will be wrapped under ```/src/routes/__layout.svelte```, which also create a navigation section on the left. You can modify  ```/src/components/nav.svelte``` to create more links, or change the overall layout in ```__layout.svelte```.
@@ -99,7 +101,3 @@ npm run deploy
 The ```gh-pages``` package will upload ```./build``` to a new branch called "gh-pages".
 
 You can go to Settings/Pages on your repo and should see "gh-pages" is selected as the site source. After a moment the site should be ready to access.
-
-You can access my example site here:
-
-https://alankrantas.github.io/markdown-doc-gen
