@@ -92,4 +92,4 @@ Footnote[^first]
 
 Embedded image:
 
-![logo](/favicon.png)
+![logo](https://alankrantas.github.io/markdown-doc-gen/favicon.png)

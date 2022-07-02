@@ -61,7 +61,7 @@ Relative path (like ```/<path>/filename```) won't work in Svelte's routing syste
 
 Install Node.js, download the project and install dependencies:
 
-```
+```bash
 npm install
 ```
 
@@ -69,7 +69,7 @@ npm install
 
 Test the project locally:
 
-```
+```bash
 npm run dev
 ```
 
@@ -93,16 +93,24 @@ These will be set to ```paths.base``` (relative routing path) and ```paths.asset
 
 3. Create a production, setup the project with git then push it to the repo: (you can find the remote link in the menu of ```Code```)
 
-```
-npm run build
+```bash
 git init
 git add .
 git commit -m "Initial commit"
 git remote add origin https://github.com/<your-github-user-name>/<your-repo-name>.git
 git pull origin main
+npm run build
 npm run deploy
 ```
 
 The ```gh-pages``` package will upload ```./build``` to a new branch called "gh-pages".
 
 You can go to Settings/Pages on your repo and should see "gh-pages" is selected as the site source. After a moment the site should be ready to access.
+
+### Update Source Code
+
+```
+git add .
+git commit -m "Updating"
+git push origin master
+```
