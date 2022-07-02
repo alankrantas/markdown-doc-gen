@@ -1,6 +1,6 @@
 # Markdown-Doc-Gen
 
-A proof-of-concept that can generate Markdown documents to static web pages. Made with [Svelte](https://svelte.dev/)/[SvelteKit](https://kit.svelte.dev/) and several CSS tools. You can maintain a public documentation site by *simply adding Markdown files* then build/deploy it to [Github Pages](https://pages.github.com/). 
+A proof-of-concept that can generate Markdown documents to static web pages. You can maintain a public documentation site by *simply adding Markdown files* then build/deploy it to [Github Pages](https://pages.github.com/). 
 
 This web app can render Markdown (.md) documents under ```/src/routes``` into static web pages, just like any Svelte components. For example, ```/src/routes/index.md``` can be accessed as ```<host>/<path>/index```. Most of the Markdown styles, code hightlights and HTML tags are working.
 
@@ -9,25 +9,33 @@ This web app can render Markdown (.md) documents under ```/src/routes``` into st
 * Example site: **https://alankrantas.github.io/markdown-doc-gen**
 * Example site branch: **https://github.com/alankrantas/markdown-doc-gen/tree/gh-pages**
 
+This project is made with [Svelte](https://svelte.dev/)/[SvelteKit](https://kit.svelte.dev/) and several CSS tools:
+
+* [vite-plugin-svelte-md](https://www.npmjs.com/package/vite-plugin-svelte-md)
+* Several plugins from [markdown-it](https://www.npmjs.com/package/markdown-it)
+* [github-markdown-css](https://www.npmjs.com/package/github-markdown-css)
+* [highlight.js](https://www.npmjs.com/package/highlight.js?activeTab=readme)
+* [Bootstrap](https://getbootstrap.com/)
+
 ## Modifying the Doc Site
 
 ```index.md``` is the default entry page. But any Markdown docs will be wrapped under ```/src/routes/__layout.svelte```, which also create a navigation section on the left. You can modify  ```/src/components/nav.svelte``` to create more links, or change the overall layout in ```__layout.svelte```.
 
-You can also still use normal Svelte components, including delete ```index.md``` and replace it with ```index.svelte```.
+You can still use normal Svelte components, including delete ```index.md``` and replace it with ```index.svelte``` and other pages.
 
 ### Bootstrap Styles
 
-```__layout.svelte``` injected [Bootstrap](https://getbootstrap.com/) styles so you can actually use it to add style in Markdown docs:
+By default Markdown files are rendered with Github Markdown styles. But ```__layout.svelte``` also injected Bootstrap 5 styles so you can use them in HTML tags:
 
 ```markdown
-<div class="display-6">
+<div class="display-6 test-muted">
     *some texts*
 </div>
 ```
 
 ### "Warning" Custom Container
 
-For now only one type of Markdown custom container is supported:
+By default only one Markdown custom container is supported:
 
 ```markdown
 ::: warning
@@ -35,25 +43,25 @@ For now only one type of Markdown custom container is supported:
 :::
 ```
 
-However the package I've used doesn't render styles for it, only create a ```<div class="warning"></div>```. So there is a section of code in ```__layout.svelte``` which will find all blocks with the class name "warning" and add some Bootstrap styles on them. You can modify the code if you want some different container styles.
+The package I've used only create a ```<div class="warning"></div>``` with no styles. So there is a section of code in ```__layout.svelte``` which finds all blocks with the class name "warning" and add some Bootstrap styles. You can modify the code to get different styles.
 
-If you want to change the container name, go to ```svelte.config.js``` 
+If you want to change the container name, go to ```svelte.config.js``` and find
 
 ```js
 [markdown_container, "warning"],
 ```
 
-And change "warning" to other names (remember to modify ```__layout.svelte``` as well).
+Change "warning" to other names you'd like (remember to modify ```__layout.svelte``` as well).
 
 ### Hyperlinks
 
-Any Svelte components and Markdown files under ```/src/routes``` can be directly accessed by their names (without extension). But if you want to use Markdown links, it has to be *full path*:
+Any Svelte components and Markdown files under ```/src/routes``` can be directly accessed by their names without extension. But if you want to use Markdown links, it has to be *full path*:
 
 ```markdown
 [link name](https://<host>/<path>/filename)
 ```
 
-Relative path (like ```/<path>/filename```) won't work in Svelte's routing system when the site is published via Github Pages.
+Relative path (```/<path>/filename```) won't work since Svelte's routing system will ignore non-root paths in Github Pages.
 
 ## Use This Project
 
