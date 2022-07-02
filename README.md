@@ -2,12 +2,11 @@
 
 A proof-of-concept that can generate Markdown documents to static web pages. You can maintain a public documentation site by *simply adding Markdown files* then build/deploy it to [Github Pages](https://pages.github.com/). 
 
-This web app can render Markdown (.md) documents under ```/src/routes``` into static web pages, just like any Svelte components. For example, ```/src/routes/index.md``` can be accessed as ```<host>/<path>/index```. Most of the Markdown styles, code hightlights and HTML tags are working.
+This web app can render Markdown (.md) documents into static web pages, just like any Svelte components, but they have to be under ```/src/routes``` to be accessible. For example, ```/src/routes/index.md``` can be accessed as ```<host>/<path>/index```. Most of the Markdown styles, code hightlights and HTML tags works.
 
 ![1](https://user-images.githubusercontent.com/44191076/176992155-794b458b-9136-4be5-9f80-fc03aa6940dd.png)
 
 * Example site: **https://alankrantas.github.io/markdown-doc-gen**
-* Example site branch: **https://github.com/alankrantas/markdown-doc-gen/tree/gh-pages**
 
 This project is made with [Svelte](https://svelte.dev/)/[SvelteKit](https://kit.svelte.dev/) and several CSS tools:
 
@@ -19,13 +18,13 @@ This project is made with [Svelte](https://svelte.dev/)/[SvelteKit](https://kit.
 
 ## Modifying the Doc Site
 
-```index.md``` is the default entry page. But any Markdown docs will be wrapped under ```/src/routes/__layout.svelte```, which also create a navigation section on the left. You can modify  ```/src/components/nav.svelte``` to create more links, or change the overall layout in ```__layout.svelte```.
+```index.md``` is the default entry page. Any Markdown pages will be wrapped under ```/src/routes/__layout.svelte```, which also create a navigation section on the left. You can modify  ```/src/components/nav.svelte``` to create more links, or change the overall layout in ```__layout.svelte```.
 
 You can still use normal Svelte components, including delete ```index.md``` and replace it with ```index.svelte``` and other pages.
 
 ### Bootstrap Styles
 
-By default Markdown files are rendered with Github Markdown styles. But ```__layout.svelte``` also injected Bootstrap 5 styles so you can use them in HTML tags:
+By default Markdown files are rendered with Github-like Markdown styles. But ```__layout.svelte``` also injected Bootstrap 5 styles so you can use them in HTML tags (not all of them will be working though):
 
 ```markdown
 <div class="display-6 test-muted">
@@ -35,7 +34,7 @@ By default Markdown files are rendered with Github Markdown styles. But ```__lay
 
 ### "Warning" Custom Container
 
-By default only one Markdown custom container is supported:
+By default this app only supports one custom container:
 
 ```markdown
 ::: warning
@@ -43,7 +42,7 @@ By default only one Markdown custom container is supported:
 :::
 ```
 
-The package I've used only create a ```<div class="warning"></div>``` with no styles. So there is a section of code in ```__layout.svelte``` which finds all blocks with the class name "warning" and add some Bootstrap styles. You can modify the code to get different styles.
+The package I've used will create a ```<div class="warning"></div>``` with no styles. In ```__layout.svelte``` there are some codes that will find all "warning" blocks and add some Bootstrap styles (grey alert box with white text). You can modify the code to get different styles, for example, the [HackMD](https://hackmd.io/s/features#Alert-Area) style.
 
 If you want to change the container name, go to ```svelte.config.js``` and find
 
@@ -61,7 +60,7 @@ Any Svelte components and Markdown files under ```/src/routes``` can be directly
 [link name](https://<host>/<path>/filename)
 ```
 
-Relative path (```/<path>/filename```) won't work since Svelte's routing system will ignore non-root paths in Github Pages.
+Relative path (```/<path>/filename```) won't work since Svelte's routing system cannot work with non-root paths in Github Pages (unless you add it like in ```nav.svelte```).
 
 ## Use This Project
 
