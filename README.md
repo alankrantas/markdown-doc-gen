@@ -6,7 +6,8 @@ This web app can render Markdown (.md) documents under ```/src/routes``` into st
 
 ![1](https://user-images.githubusercontent.com/44191076/176992155-794b458b-9136-4be5-9f80-fc03aa6940dd.png)
 
-Example site: **https://alankrantas.github.io/markdown-doc-gen**
+* Example site: **https://alankrantas.github.io/markdown-doc-gen**
+* Example site branch: **https://github.com/alankrantas/markdown-doc-gen/tree/gh-pages**
 
 ## Modifying the Doc Site
 
@@ -54,7 +55,9 @@ Any Svelte components and Markdown files under ```/src/routes``` can be directly
 
 Relative path (like ```/<path>/filename```) won't work in Svelte's routing system when the site is published via Github Pages.
 
-## Setup
+## Use This Project
+
+### Setup
 
 Install Node.js, download the project and install dependencies:
 
@@ -62,7 +65,9 @@ Install Node.js, download the project and install dependencies:
 npm install
 ```
 
-## Run Dev Server
+### Run Dev Server
+
+Test the project locally:
 
 ```
 npm run dev
