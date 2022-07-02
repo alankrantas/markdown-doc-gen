@@ -1,3 +1,7 @@
+---
+title: Bootstrap Demo
+---
+
 <div class="card shadow" style="width: 18rem;">
   <div class="card-body">
     <div class="card-title display-6">Card Title</div>

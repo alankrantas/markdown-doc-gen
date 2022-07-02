@@ -1,3 +1,7 @@
+---
+title: Markdown Demo
+---
+
 # h1 Heading
 
 ## h2 Heading
