@@ -9,6 +9,7 @@ import markdown_emoji from "markdown-it-emoji";
 import markdown_footnote from "markdown-it-footnote";
 import markdown_ins from "markdown-it-ins";
 import markdown_mark from "markdown-it-mark";
+import markdown_prism from "markdown-it-prism";
 import markdown_sub from "markdown-it-sub";
 import markdown_sup from "markdown-it-sup";
 
@@ -78,6 +79,7 @@ const config = {
 						markdown_footnote,
 						markdown_ins,
 						markdown_mark,
+						markdown_prism,
 						markdown_sub,
 						markdown_sup,
 						[markdown_container, "warning"],

@@ -21,7 +21,7 @@
     <ul class="nav flex-column">
         {#each links as link}
             <li class="nav-item">
-                <a class="nav-link" href="{base}{link.path}"> {link.name} </a>
+                <a class="nav-link" href="{base}{link.path}" rel="external"> {link.name} </a>
             </li>
         {/each}
     </ul>
