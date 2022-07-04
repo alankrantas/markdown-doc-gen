@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { page } from "$app/stores";
-	import { tick } from "svelte";
+	import { tick, onMount } from "svelte";
 	import Nav from "../components/nav.svelte";
 
 	import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,7 +7,7 @@
 	import "highlight.js/styles/github.css";
 	import hljs from "highlight.js";
 
-	const applyStyles = async () => {
+	onMount(async () => {
 		await tick();
 		hljs.highlightAll();
 		const elements = document.getElementsByClassName("warning");
@@ -20,10 +19,8 @@
 					"p-2 m-2 text-light bg-secondary rounded-2"
 				);
 		}
-	};
+	});
 </script>
-
-<svelte:window on:load={page.subscribe(applyStyles)} />
 
 <div class="container-fluid">
 	<div class="row">
