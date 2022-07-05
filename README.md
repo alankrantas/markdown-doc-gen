@@ -1,6 +1,6 @@
 # Markdown-Doc-Gen
 
-A proof-of-concept that can generate Markdown documents to static web pages. You can maintain a public documentation site by *simply adding Markdown files* then build/deploy it to [Github Pages](https://pages.github.com/). 
+A very simple web app that can generate Markdown documents to static web pages. You can maintain a public documentation site by *simply adding Markdown files* then build/deploy it to [Github Pages](https://pages.github.com/). 
 
 This web app can render Markdown (.md) documents into static web pages, just like any Svelte components, but they have to be under ```/src/routes``` to be accessible. For example, ```/src/routes/index.md``` can be accessed as ```<host>/<path>/index```. Most of the Markdown styles, code hightlights and HTML tags works.
 
