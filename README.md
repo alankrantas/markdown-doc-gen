@@ -1,4 +1,4 @@
-# Markdown-Doc-Gen
+# Simple Markdown-Doc-Gen
 
 A very simple web app that can generate Markdown documents to static web pages. You can maintain a public documentation site by *simply adding Markdown files* then build/deploy it to [Github Pages](https://pages.github.com/). 
 
@@ -6,7 +6,7 @@ This web app can render Markdown (.md) documents into static web pages, just lik
 
 ![1](https://user-images.githubusercontent.com/44191076/176992155-794b458b-9136-4be5-9f80-fc03aa6940dd.png)
 
-* Example site: **https://alankrantas.github.io/markdown-doc-gen**
+* Example site: **https://alankrantas.github.io/simple-markdown-doc-gen**
 
 This project is made with [Svelte](https://svelte.dev/)/[SvelteKit](https://kit.svelte.dev/) and several CSS tools:
 
